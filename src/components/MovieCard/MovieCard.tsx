@@ -74,8 +74,8 @@ const MovieCard: React.FC<IMovieCard> = ({
 
   return (
     <div>
-      <div className="h-auto float-left overflow-x-hidden overflow-y-hidden block relative mt-0 mr-5 mb-7 ml-0 flex-shrink rounded-t rounded-b">
-        <div className="ml-0 bg-black float-none">
+      <div className="h-auto float-left overflow-x-hidden overflow-y-hidden block relative mt-2 mr-0 mb-2 ml-2 flex-shrink rounded-t rounded-b">
+        <div className="bg-black float-none">
           <img
             className="object-cover w-full h-full transform scale-100 transition-transform duration-500 ease-in-out hover:scale-110"
             src={poster}
