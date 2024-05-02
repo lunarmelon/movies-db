@@ -1,0 +1,3 @@
+.pill {
+  @apply bg-purple-900 text-white rounded-lg h-auto w-auto px-2 py-1 font-bold text-xs;
+}

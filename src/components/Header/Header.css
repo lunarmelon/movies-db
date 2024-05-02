@@ -1,0 +1,4 @@
+.header-button {
+  @apply px-3 text-white text-lg bg-purple-950 pb-2 pt-2 pl-2 pr-2 
+   font-medium mr-3 mt-1 rounded flex-1 text-center w-32;
+}

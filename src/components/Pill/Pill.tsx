@@ -1,9 +1,13 @@
 import React from "react";
 import { IPill } from "./types";
-import classNames from "classnames";
+import "./Pill.css";
 
-const Pill = () => {
-  return <div>Pill</div>;
+const Pill: React.FC<IPill> = ({ title }) => {
+  return (
+    <div className="flex">
+      <div className="pill">{title}</div>
+    </div>
+  );
 };
 
 export default Pill;

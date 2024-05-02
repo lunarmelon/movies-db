@@ -1,0 +1,23 @@
+.card-container {
+  @apply float-left block relative mt-2 mr-2 mb-2 ml-2 rounded-t rounded-b shadow-md overflow-hidden min-w-72;
+}
+
+.poster-container {
+  @apply bg-white float-none;
+}
+
+.poster-image {
+  @apply object-cover w-full h-full transform scale-100 transition-transform duration-500 ease-in-out hover:scale-110;
+}
+
+.movie-info {
+  @apply bg-gradient-to-t from-black via-gray-800 to-transparent bottom-0 left-0  w-full rounded-b-md absolute;
+}
+
+.title {
+  @apply text-white text-xl italic font-bold mt-2 mb-2;
+}
+
+.voteAverage {
+  @apply text-white text-2xl font-bold items-center flex;
+}

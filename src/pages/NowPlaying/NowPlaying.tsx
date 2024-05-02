@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { getPopular } from "../../services";
+import { getNowPlaying } from "../../services";
 import { MovieCard } from "../../components/MovieCard";
-import { IMovieResponse } from "./types";
+import { IMovieResponse } from "../Popular/types";
 
-const Popular = () => {
+const NowPlaying = () => {
   const [movies, setMovies] = useState<IMovieResponse[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorOnRequest, setErrorOnRequest] = useState<boolean>(false);
 
-  const getPopularMovies = async () => {
-    await getPopular()
+  const getNowPlayingMovies = async () => {
+    await getNowPlaying()
       .then((data) => {
         if (data && data.data) {
           setMovies(data.data.results);
@@ -22,7 +22,7 @@ const Popular = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    getPopularMovies();
+    getNowPlayingMovies();
     setIsLoading(false);
   }, []);
 
@@ -49,4 +49,4 @@ const Popular = () => {
   );
 };
 
-export default Popular;
+export default NowPlaying;

@@ -1,55 +1,173 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import {
+  getPopular,
+  getNowPlaying,
+  getUpcoming,
+  getTopRated,
+} from "../../services";
 import { MovieCard } from "../../components/MovieCard";
-import { movies } from "../../constants/moviesMock";
+import { IMovieResponse } from "../Popular/types";
+import "./Home.css";
 
 const Home = () => {
+  const [moviesPopular, setMoviesPopular] = useState<IMovieResponse[]>([]);
+  const [moviesNowPlaying, setMoviesNowPlaying] = useState<IMovieResponse[]>(
+    [],
+  );
+  const [moviesUpcoming, setMoviesUpcoming] = useState<IMovieResponse[]>([]);
+
+  const [moviesTopRated, setMoviesTopRated] = useState<IMovieResponse[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorOnRequest, setErrorOnRequest] = useState<boolean>(false);
+
+  const getPopularMovies = async () => {
+    await getPopular()
+      .then((data) => {
+        if (data && data.data) {
+          setMoviesPopular(data.data.results);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    setIsLoading(true);
+    getPopularMovies();
+    setIsLoading(false);
+  }, []);
+
+  const getNowPlayingMovies = async () => {
+    await getNowPlaying()
+      .then((data) => {
+        if (data && data.data) {
+          setMoviesNowPlaying(data.data.results);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    setIsLoading(true);
+    getNowPlayingMovies();
+    setIsLoading(false);
+  }, []);
+
+  const getUpcomingMovies = async () => {
+    await getUpcoming()
+      .then((data) => {
+        if (data && data.data) {
+          setMoviesUpcoming(data.data.results);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    setIsLoading(true);
+    getUpcomingMovies();
+    setIsLoading(false);
+  }, []);
+
+  const getTopRatedMovies = async () => {
+    await getTopRated()
+      .then((data) => {
+        if (data && data.data) {
+          setMoviesTopRated(data.data.results);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    setIsLoading(true);
+    getTopRatedMovies();
+    setIsLoading(false);
+  }, []);
+
   return (
-    <div className="w-full">
-      <p className="font-bold text-2xl ml-4 mt-3">Latest:</p>
-      <div className="flex overflow-x-auto p-3">
-        <div className="flex w-full">
-          <MovieCard
-            movieId={movies[0].id}
-            posterPath={movies[0].poster_path}
-            title={movies[0].title}
-            voteAverage={movies[0].vote_average}
-            genreId={movies[0].genre_ids[0]}
-          />
-          <MovieCard
-            movieId={movies[1].id}
-            posterPath={movies[1].poster_path}
-            title={movies[1].title}
-            voteAverage={movies[1].vote_average}
-            genreId={movies[1].genre_ids[1]}
-          />
-          <MovieCard
-            movieId={movies[4].id}
-            posterPath={movies[4].poster_path}
-            title={movies[4].title}
-            voteAverage={movies[4].vote_average}
-            genreId={movies[4].genre_ids[4]}
-          />
-          <MovieCard
-            movieId={movies[5].id}
-            posterPath={movies[5].poster_path}
-            title={movies[5].title}
-            voteAverage={movies[5].vote_average}
-            genreId={movies[5].genre_ids[5]}
-          />
-          <MovieCard
-            movieId={movies[6].id}
-            posterPath={movies[6].poster_path}
-            title={movies[6].title}
-            voteAverage={movies[6].vote_average}
-            genreId={movies[6].genre_ids[6]}
-          />
-          <MovieCard
-            movieId={movies[7].id}
-            posterPath={movies[7].poster_path}
-            title={movies[7].title}
-            voteAverage={movies[7].vote_average}
-            genreId={movies[7].genre_ids[7]}
-          />
+    <div className="home-container">
+      <p className="subtitle">Now Playing:</p>
+      <div>
+        {isLoading && <div>Loading...</div>}
+        {errorOnRequest && <div> ...Error</div>}
+        <div className="movie-card-container">
+          {moviesNowPlaying?.length > 0 &&
+            moviesNowPlaying.map((movie) => (
+              <MovieCard
+                key={movie.id}
+                movieId={movie.id}
+                posterPath={movie.poster_path}
+                title={movie.title}
+                voteAverage={movie.vote_average}
+                genreId={movie.genre_ids[0]}
+              />
+            ))}
+        </div>
+      </div>
+
+      <p className="subtitle">Popular:</p>
+      <div>
+        {isLoading && <div>Loading...</div>}
+        {errorOnRequest && <div> ...Error</div>}
+
+        <div className="movie-card-container">
+          {moviesPopular?.length > 0 &&
+            moviesPopular.map((movie) => (
+              <MovieCard
+                key={movie.id}
+                movieId={movie.id}
+                posterPath={movie.poster_path}
+                title={movie.title}
+                voteAverage={movie.vote_average}
+                genreId={movie.genre_ids[0]}
+              />
+            ))}
+        </div>
+      </div>
+
+      <p className="subtitle">Upcoming:</p>
+      <div className="">
+        {isLoading && <div>Loading...</div>}
+        {errorOnRequest && <div> ...Error</div>}
+        <div className="movie-card-container">
+          {moviesUpcoming?.length > 0 &&
+            moviesUpcoming.map((movie) => (
+              <MovieCard
+                key={movie.id}
+                movieId={movie.id}
+                posterPath={movie.poster_path}
+                title={movie.title}
+                voteAverage={movie.vote_average}
+                genreId={movie.genre_ids[0]}
+              />
+            ))}
+        </div>
+      </div>
+
+      <p className="subtitle">Top Rated:</p>
+      <div className="">
+        {isLoading && <div>Loading...</div>}
+        {errorOnRequest && <div> ...Error</div>}
+        <div className="movie-card-container">
+          {moviesTopRated?.length > 0 &&
+            moviesTopRated.map((movie) => (
+              <MovieCard
+                key={movie.id}
+                movieId={movie.id}
+                posterPath={movie.poster_path}
+                title={movie.title}
+                voteAverage={movie.vote_average}
+                genreId={movie.genre_ids[0]}
+              />
+            ))}
         </div>
       </div>
     </div>
