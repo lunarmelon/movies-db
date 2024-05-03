@@ -24,6 +24,9 @@ const Header = () => {
             <li className="header-button">
               <Link to={ROUTES.TOP_RATED}>Top Rated</Link>
             </li>
+            <li className="header-button">
+              <Link to={ROUTES.FAVORITES}>Favorites</Link>
+            </li>
           </ul>
         </nav>
       </div>

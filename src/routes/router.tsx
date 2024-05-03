@@ -3,7 +3,15 @@ import { ROUTES } from "./constants";
 
 import PrivateRouter from "./PrivateRouter";
 
-import { Home, Popular, NowPlaying, Upcoming, TopRated, Show } from "../pages";
+import {
+  Home,
+  Popular,
+  NowPlaying,
+  Upcoming,
+  TopRated,
+  Show,
+  Favorites,
+} from "../pages";
 
 const routes: RouteObject[] = [
   {
@@ -16,6 +24,7 @@ const routes: RouteObject[] = [
       { path: ROUTES.UPCOMING, element: <Upcoming /> },
       { path: ROUTES.TOP_RATED, element: <TopRated /> },
       { path: `${ROUTES.SHOW}:id`, element: <Show /> },
+      { path: ROUTES.FAVORITES, element: <Favorites /> },
     ],
   },
 ];

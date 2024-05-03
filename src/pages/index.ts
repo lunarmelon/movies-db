@@ -4,3 +4,4 @@ export { default as Show } from "./Show/Show";
 export { default as NowPlaying } from "./NowPlaying/NowPlaying";
 export { default as Upcoming } from "./Upcoming/Upcoming";
 export { default as TopRated } from "./TopRated/TopRated";
+export { default as Favorites } from "./Favorites/Favorites";
