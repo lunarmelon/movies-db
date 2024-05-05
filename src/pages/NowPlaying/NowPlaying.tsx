@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getNowPlaying } from "../../services";
 import { MovieCard } from "../../components/MovieCard";
 import { IMovieResponse } from "../Popular/types";
+import "../Home/Home.css";
 
 const NowPlaying = () => {
   const [movies, setMovies] = useState<IMovieResponse[]>([]);
@@ -27,8 +28,9 @@ const NowPlaying = () => {
   }, []);
 
   return (
-    <div className="">
-      <div className="">
+    <div>
+      <div>
+        <p className="subtitle">Now Playing:</p>
         {isLoading && <div>Loading...</div>}
         {errorOnRequest && <div> ...Error</div>}
         <div className="grid gap-2 grid-cols-4 grid-flow-row">

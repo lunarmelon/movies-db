@@ -1,0 +1,22 @@
+.main-container {
+  @apply bg-white;
+}
+
+.back-button {
+  @apply px-3 text-white text-lg bg-purple-950 pb-1 pt-1 pl-2 pr-2 
+   font-medium rounded text-center flex;
+}
+
+.favorite-button {
+  @apply px-3 text-white text-lg bg-green-800 pb-1 pt-1 pl-2 pr-2
+   font-medium rounded text-center flex;
+}
+
+.unfavorite-button {
+  @apply px-3 text-white text-lg bg-red-800 pb-1 pt-1 pl-2 pr-2
+   font-medium rounded text-center flex;
+}
+
+.subtitle-recommendations {
+  @apply text-black font-bold py-2 px-3 text-3xl mt-3 ml-3;
+}

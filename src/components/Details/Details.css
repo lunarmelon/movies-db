@@ -1,0 +1,46 @@
+.main-container {
+  @apply ml-3 mr-3 mt-4 rounded-md;
+}
+
+.movie-details-info {
+  @apply border-solid flex rounded-md shadow-xl;
+}
+
+.poster-details-image {
+  @apply h-96 mx-3 rounded my-3 shadow-lg;
+}
+
+.movie-details-overview {
+  @apply grid-cols-3;
+}
+
+.pills {
+  @apply grid grid-flow-row;
+}
+
+.genre-info {
+  @apply px-3 text-white text-sm bg-purple-950 pb-2 pt-2 pl-2 pr-2 
+   font-medium mr-3 mt-1 rounded flex-1 text-center w-20;
+}
+
+.language-info {
+  @apply flex w-fit shadow-inner text-center p-2 rounded-xl bg-violet-700 text-white
+   font-bold;
+}
+
+.movie-title {
+  @apply text-left text-5xl font-bold my-3 mt-6;
+}
+
+.movie-overview-text {
+  @apply rounded-md flex-wrap mx-1 p-2 text-lg mt-10 mb-2;
+}
+
+.movie-breadcrumbs {
+  @apply px-2 text-base pb-2 pt-2 pl-2 pr-2 
+   font-medium mr-3 mt-1 rounded flex-1 text-center w-32;
+}
+
+.movie-breadcrumbs-icon {
+  @apply w-5 h-5 flex mt-0.5 mr-1;
+}

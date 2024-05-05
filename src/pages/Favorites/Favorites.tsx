@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { IMovieDetail } from "../Show/types";
 import { MovieCard } from "../../components/MovieCard";
-import { getDetails, getPopular } from "../../services";
+import { getDetails } from "../../services";
+import "../Home/Home.css";
 
 const Favorites = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -38,9 +39,9 @@ const Favorites = () => {
     <div>
       {!isLoading ? (
         <div>
-          <h2>Favorites</h2>
+          <p className="subtitle">Favorites:</p>
           {favorites && favorites.length > 0 ? (
-            <div>
+            <div className="grid gap-2 grid-cols-4 grid-flow-row">
               {shows &&
                 shows.map((show: IMovieDetail) => (
                   <MovieCard
@@ -55,7 +56,9 @@ const Favorites = () => {
             </div>
           ) : (
             <div>
-              <h2>Oops... you don't have any favorites yet.</h2>
+              <p className="subtitle">
+                Oops... you don't have any favorites yet.
+              </p>
             </div>
           )}
         </div>

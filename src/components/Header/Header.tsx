@@ -7,7 +7,12 @@ const Header = () => {
   return (
     <div className="bg-purple-900 px-2 shadow-md pt-1 pb-1">
       <div className="flex justify-between items-center mb-1">
-        <p className="text-5xl text font-bold ml-2">
+        <img
+          src="https://saki.ichoria.org/f/yle3v/Untitled_design.png"
+          alt=""
+          className="w-16 h-16 ml-2 mt-1"
+        />
+        <p className="text-4xl text font-bold mt-1 mr-72 text-white">
           <Link to={ROUTES.HOME}>Cyberia Movies</Link>
         </p>
         <nav className="mb-3 mt-3 ml-3 mr-3">

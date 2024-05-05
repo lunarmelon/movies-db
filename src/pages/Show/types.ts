@@ -1,12 +1,3 @@
-// To parse this data:
-//
-//   import { Convert, Welcome } from "./file";
-//
-//   const welcome = Convert.toWelcome(json);
-//
-// These functions will throw an error if the JSON doesn't
-// match the expected interface, even if the JSON is valid.
-
 export interface IMovieDetail {
   adult: boolean;
   backdrop_path: string;
@@ -29,6 +20,23 @@ export interface IMovieDetail {
   spoken_languages: SpokenLanguage[];
   status: string;
   tagline: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+}
+
+export interface IMovieDetailResponse {
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: Date;
   title: string;
   video: boolean;
   vote_average: number;
